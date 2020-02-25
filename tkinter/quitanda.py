@@ -3,6 +3,7 @@
 import pandas as pd, numpy as np, tkinter as tk
 from tkinter import ttk
 
+
 #========== Criar tabela
 datas = pd.date_range(start = '2020-1-1', end = '2020-12-31', freq = 'd')
 vendedores = np.random.choice(['Sergio','Heloise','Miu',], len(datas))
@@ -36,6 +37,9 @@ df.loc[df.desconto == 1, 'valor_venda'] = df.loc[df.desconto == 1, 'valor_venda'
 
 #========== Criar janela do tkinter
 w = tk.Tk()
+w.title('Análise de vendas')
+w.geometry('400x200')
+
 
 #========= criar função que calcula soma quantidade de vendas
 def click_me():
