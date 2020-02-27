@@ -41,35 +41,56 @@ tk.Button(w, text = 'ação2d', command = action2d).grid(row = 2, column = 1)
 
 
 
-d = {
-    'Rogue Legacy': '241600', 
-    'Cave Story+': '200900', 
-    'Dragon Ball Fighterz': '678950', 
-    'Mega Man Legacy Collection': '363440', 
-    'Mega Man X Legacy Collection': '743890', 
-    'Out There Somewhere': '263980', 
-    'Icey': '553640', 
-    'Street Fighter V': '310950'
-    }
+d ={
+"Rogue Legacy": "241600", 
+"Cave Story+": "200900", 
+"Dragon Ball Fighterz": "678950", 
+"Mega Man Legacy Collection": "363440", 
+"Mega Man X Legacy Collection": "743890", 
+"Out There Somewhere": "263980", 
+"Icey": "553640", 
+"Street Fighter V": "310950", 
+"Doom 2016": "379720", 
+"Counter Strike GO": "730", 
+"Mean Greens Plastic Warfare": "360940", 
+"Hotline Miami": "219150", 
+"Faster Than Light": "212680", 
+"Hollow Knight": "367520", 
+"Half Life": "70", 
+"Final Doom": "2290",
+"Ultimate Doom":"2280",
+"Super Mario Bros X": "14750106498495414272",
+"Sonic Chaos": "10324995912400633856",
+"Sonic 3 AIR": "10309753391294709760",}
+
 
 keys = list(d.keys())
 values = list(d.values())
 
 
-# Combo box widgets
+def random_random():
+    x = np.random.choice(values)
+    os.system(f'steam  steam://rungameid/{x}')    
+tk.Button(w, text = 'random_random', command = random_random).grid(row = 3, column = 1)
 
-ttk.Label(w, text = 'Ou escolha um jogo da lista:', font = 'arial, 11').grid(column = 1, row = 4)
+
+
+
+
+# Combo box widgets
+ttk.Label(w, text = '', font = 'arial, 11').grid(column = 1, row = 4)
+ttk.Label(w, text = 'Ou escolha um jogo da lista:', font = 'arial, 13').grid(column = 1, row = 5)
 game = tk.StringVar()
 game_selected = ttk.Combobox(w, width = 30, textvariable = game, state = 'readonly')
 game_selected['values'] = keys
-game_selected.grid(column = 1, row = 5)
+game_selected.grid(column = 1, row = 6)
 game_selected.current(5)
 
 def  selected_game():
-    ttk.Label(w, text = f'você escolheu: {game_selected.get()}').grid(column = 1, row = 6)
-    ttk.Label(w, text = f'steam steam://rungameid/{d[game_selected.get()]}').grid(column = 1, row = 7 )
+    ttk.Label(w, text = f'você escolheu: {game_selected.get()}').grid(column = 1, row = 7)
+    ttk.Label(w, text = f'steam steam://rungameid/{d[game_selected.get()][0]}').grid(column = 1, row = 8 )
     os.system(f'steam steam://rungameid/{d[game_selected.get()]}')
-ttk.Button(w, text = 'clique aqui', command = selected_game).grid(column = 1, row = 8)
+ttk.Button(w, text = 'clique aqui', command = selected_game).grid(column = 1, row = 9)
 
 # elogio aleatório
 # w.counter = 0
