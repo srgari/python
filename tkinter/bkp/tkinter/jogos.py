@@ -5,10 +5,9 @@ import tkinter.messagebox
 import os
 
 w = tk.Tk()
-w.geometry("400x400")
+w.geometry("400x200")
 
-ttk.Label(w, text = 'Deixe o botão escolher um jogo aleatório',
- font = "arial, 14").grid(row = 0, column = 1, padx = 30)
+ttk.Label(w, text = 'Deixe o botão escolher um jogo aleatório', font = "arial, 14").grid(row = 0, column = 1)
 
 # escolher jogo aleatório para jogar
 w.title('Sergio')
@@ -19,7 +18,7 @@ def fight():
 
     x = np.random.choice(l)
     os.system(f'steam {x}')    
-tk.Button(w, text = 'luta', command = fight).grid(row = 1, column = 1, pady = 4)
+tk.Button(w, text = 'luta', command = fight).grid(row = 1, column = 1)
 
 
 
@@ -37,7 +36,7 @@ def action2d():
 
     x = np.random.choice(l)
     os.system(f'steam {x}')    
-tk.Button(w, text = 'ação2d', command = action2d).grid(row = 2, column = 1, pady = 5)
+tk.Button(w, text = 'ação2d', command = action2d).grid(row = 2, column = 1)
 
 
 
@@ -64,17 +63,23 @@ d ={
 "Sonic Chaos": "10324995912400633856",
 "Sonic 3 AIR": "10309753391294709760",}
 
+
 keys = list(d.keys())
 values = list(d.values())
+
 
 def random_random():
     x = np.random.choice(values)
     os.system(f'steam  steam://rungameid/{x}')    
-tk.Button(w, text = 'random_random', command = random_random).grid(row = 3, column = 1, pady = 5)
+tk.Button(w, text = 'random_random', command = random_random).grid(row = 3, column = 1)
+
+
+
+
 
 # Combo box widgets
-
-ttk.Label(w, text = 'Ou escolha um jogo da lista:', font = 'arial, 13', ).grid(column = 1, row = 5,pady = 5)
+ttk.Label(w, text = '', font = 'arial, 11').grid(column = 1, row = 4)
+ttk.Label(w, text = 'Ou escolha um jogo da lista:', font = 'arial, 13').grid(column = 1, row = 5)
 game = tk.StringVar()
 game_selected = ttk.Combobox(w, width = 30, textvariable = game, state = 'readonly')
 game_selected['values'] = keys
@@ -85,18 +90,29 @@ def  selected_game():
     ttk.Label(w, text = f'você escolheu: {game_selected.get()}').grid(column = 1, row = 7)
     ttk.Label(w, text = f'steam steam://rungameid/{d[game_selected.get()][0]}').grid(column = 1, row = 8 )
     os.system(f'steam steam://rungameid/{d[game_selected.get()]}')
-ttk.Button(w, text = 'clique aqui', command = selected_game)\
-    .grid(column = 1, row = 9, pady = 10,)
+ttk.Button(w, text = 'clique aqui', command = selected_game).grid(column = 1, row = 9)
 
-# Criando uma seção separada
-vanity_space = ttk.LabelFrame(w, text = "vanity space",)
-vanity_space.grid(column = 1, row = 10, pady = 20, sticky = tk.W )
+# elogio aleatório
+# w.counter = 0
+# ttk.Label(w, text = 'Ou receba uma frase motivacional, em inglês', font = 'arial, 14').grid(column = 1, row = 7)
+# def random_compliment():
+#     if w.counter < 10:
+#         l = ['I like you', 'you can do it!','you are golden!',
+#         'you are terrific!',
+#         'you brighten my day',
+#         'you are my sunshine']
+#         tk.Label(w, text = f'                                                                  ',  font=("Helvetica", 16)).grid(row = 8, column = 1,)
+#         tk.Label(w, text = np.random.choice(l),  anchor = 'e', font=("Helvetica", 16)).grid(row = 9, column = 1)
+#         w.counter = w.counter + 1
+#     else:
+#         l = ["that's enough for today",
+#         "It doesn't get any better than this!",
+#         "Enjoying yourself?"]
+#         tk.Label(w, text = '                                                               ',font=("Helvetica", 16)).grid(row = 8, column = 1)
+#         tk.Label(w, text = np.random.choice(l),font=("Helvetica", 16)).grid(row = 8, column = 1)
 
-ttk.Label(vanity_space, text = "Sergio built this amazing program! \nHow cool is that? ", foreground  = 'blue').grid(row = 1, sticky = tk.W)
-ttk.Label(vanity_space, text = "What if I put here some randomly generated sentences? ", foreground  = 'blue').grid(row = 2, sticky = tk.W)
-ttk.Label(vanity_space, text = "It would be cool if this messages were clickable... ", foreground  = 'blue').grid(row = 3, sticky = tk.W)
+# tk.Button(w, text = f'compliment', command = random_compliment).grid(row = 8, column = 1)
 
-for child in vanity_space.winfo_children():
-    child.grid_configure(padx = 8, pady = 4)
+
 
 w.mainloop()

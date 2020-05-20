@@ -10,7 +10,6 @@ class OOP():
         self.w = tk.Tk()
         self.tree = ttk.Treeview(self.w)
         self.escolha_arquivo()
-       # self.escolha_colunas()
 
     #================================
     # Parte da escolha do arquivo
@@ -20,20 +19,22 @@ class OOP():
         self.arquivo_escolhido = ttk.Combobox(self.w, width = 50)
         self.arquivo_escolhido['values'] = tuple([x for x in os.listdir() if '.csv' in x])
         self.arquivo_escolhido.grid(column=1, row = 1)
-        #self.arquivo_escolhido.current(0)
+        self.arquivo_escolhido.current(0)
         self.b_arquivo_selecionado = ttk.Button(self.w, text = 'Pressione após escolher', command = self.escolha_colunas)
         self.b_arquivo_selecionado.grid(column = 1, row = 2)
+
 
     #================================
     # Parte da escolha das colunas
     #================================
+
     def escolha_colunas(self):
         self.tabela = self.arquivo_escolhido.get()
         self.df = pd.read_csv(self.tabela)
         self.df = self.df[[x for x in self.df.columns if 'Unnamed' not in x]]
         for x in self.df.columns:
             if 'data' in x.lower():
-                self.df[x] = pd.to_datetime(self.df[x], errors = 'coerce')
+                self.df[x] = pd.to_datetime(self.df[x])
         self.t_colunas = tuple(self.df.columns)
 
         ttk.Label(self.w, text = self.tabela).grid(column = 0, row = 0)
@@ -47,13 +48,13 @@ class OOP():
         self.e_numerica = ttk.Combobox(self.w, width = 40,)
         self.e_numerica['values'] = self.t_colunas
         self.e_numerica.grid(column = 5, row = 2)
-        #self.e_numerica.current(3)
+        self.e_numerica.current(3)
 
         ttk.Label(self.w, text = 'Coluna data').grid(column = 4, row = 3)
         self.e_data = ttk.Combobox(self.w, width = 40,)
         self.e_data['values'] = self.t_colunas
         self.e_data.grid(column = 5, row = 3)
-        #self.e_data.current(0)
+        self.e_data.current(0)
 
         ttk.Button(self.w, text = 'Selecionar colunas', command = self.resultados).grid(column = 4, row = 4)
 
