@@ -170,13 +170,30 @@ cpf_estado = '''
 
 lista_cpf = cpf_estado.split('\n')
 lista_cpf2 = [y.split(':') for y in lista_cpf if len(y) > 1] 
-lista_cpf3 = [(y,x) for x,y in lista_cpf2]
+lista_cpf3 = [(x,y.split()) for x,y in lista_cpf2]
 
-dic_cpf_regiao = dict()
-for i in lista_cpf3:
-    for j in i[0].split(' '):
-        dic_cpf_regiao[j] = i[1]
-dic_cpf_regiao
+dic_cpf = {x:y for x,y in lista_cpf3}
+func_cpf = lambda x: np.random.choice(dic_cpf[x])
+func_cpf('1')
+
+#%%
+serie_uf = dataset.cpf.str[-3].map(func_cpf)
+dataset.insert(6,'uf', serie_uf)
+
+#%%
+def lala(x):
+    lele = np.random.randint(dic_cep[x][0],dic_cep[x][1])
+    lele = str(lele).rjust(8,'0')
+    lele = lele[:5] + '-' + lele[5:]
+    return lele
+lala('SP')
+#%%
+serie_cep = dataset.uf.map(lala)
+serie_cep
+dataset.insert(7,'cep', serie_cep)
+#%%
+dataset
+
 #%%
 dataset.to_csv('csv/dados_clientes.csv', index = False)
 # %%
