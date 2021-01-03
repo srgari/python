@@ -1,4 +1,7 @@
 #%%
+
+### MUDANÇA BESTA: TESTANDO git diff
+
 ## GERANDO DATASET DE DADOS DOS CLIENTES:
 ## - NOME + SEXO
 ## - SOBRENOME
@@ -199,3 +202,4 @@ dataset.to_csv('csv/dados_clientes.csv', index = False)
 # %%
 dataset
 # %%
+### MUDANÇA BESTA 2: TESTANDO GIT DIFF
