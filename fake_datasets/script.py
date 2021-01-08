@@ -1,6 +1,8 @@
 #%%
 
 ### MUDANÇA BESTA: TESTANDO git diff
+### DESSA VEZ, VÊ SE SÓ FAZ O GIT ADD, SUA MULA!
+
 
 ## GERANDO DATASET DE DADOS DOS CLIENTES:
 ## - NOME + SEXO
@@ -203,3 +205,4 @@ dataset.to_csv('csv/dados_clientes.csv', index = False)
 dataset
 # %%
 ### MUDANÇA BESTA 2: TESTANDO GIT DIFF
+### DE NOVO: DESSA VEZ, VÊ SE SÓ FAZ O GIT ADD, SUA MULA!
