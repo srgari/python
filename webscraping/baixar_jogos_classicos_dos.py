@@ -3,7 +3,7 @@
 '''
 baixe jogos clássicos! 
 Tudo joguinho da minha infância e adolescência!
-Tudo freeware ou shareware (eu acho :P), então acho que não é pirataria!
+Tudo freeware ou shareware (eu acho :P), então acho que não é  pirataria!
 
 De quebra, adicionei o windows 3.1 já instalado! (dá uns bugs, mas dá pra viver...)
 :D
