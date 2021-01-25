@@ -25,3 +25,12 @@ df.to_sql(name = 'pandas_created_table', con = conn, if_exists = 'replace')
 cursor = conn.cursor()
 cursor.execute('CREATE TABLE sql_created_table (id integer PRIMARY_KEY)')
 # %%
+
+# %%
+df['lele'] = 1
+df.lele.astype('Int64')
+# %%
+a = 2
+# %%
+type(a)
+# %%
