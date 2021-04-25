@@ -1,0 +1,78 @@
+1613866943166	geckodriver	INFO	Listening on 127.0.0.1:48859
+1613866944174	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiletofFMk"
+ExceptionHandler::GenerateDump cloned child 60994
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+1613866957868	geckodriver	INFO	Listening on 127.0.0.1:45163
+1613866957879	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileZ0bEwF"
+ExceptionHandler::GenerateDump cloned child ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+61064
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+1613866968565	geckodriver	INFO	Listening on 127.0.0.1:34249
+1613866969574	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileyKvyHn"
+ExceptionHandler::GenerateDump cloned child ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+61131
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+1613867212142	geckodriver	INFO	Listening on 127.0.0.1:45171
+1613867212163	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile9g4dvN"
+ExceptionHandler::GenerateDump cloned child ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+64122
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+1613867347784	geckodriver	INFO	Listening on 127.0.0.1:39945
+1613867347793	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileGo5Fes"
+ExceptionHandler::GenerateDump cloned child ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+64612
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+1613867504221	geckodriver	INFO	Listening on 127.0.0.1:40369
+1613867505230	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile3gZyU5"
+ExceptionHandler::GenerateDump cloned child 64713
+ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+1613867666780	geckodriver	INFO	Listening on 127.0.0.1:55809
+1613867666791	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilejZLfeN"
+ExceptionHandler::GenerateDump cloned child 64870
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+1613867695269	geckodriver	INFO	Listening on 127.0.0.1:41797
+1613867695275	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileVzpWvT"
+ExceptionHandler::GenerateDump cloned child 64965
+ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+1613867797525	geckodriver	INFO	Listening on 127.0.0.1:36685
+1613867797535	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileB2wrbW"
+ExceptionHandler::GenerateDump cloned child 65334
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+1613867971163	geckodriver	INFO	Listening on 127.0.0.1:50971
+1613867971170	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile1qALJZ"
+ExceptionHandler::GenerateDump cloned child 65561ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+1613868154054	geckodriver	INFO	Listening on 127.0.0.1:53501
+1613868154063	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile6mRkcq"
+ExceptionHandler::GenerateDump cloned child 65715
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+1613868206401	geckodriver	INFO	Listening on 127.0.0.1:36829
+1613868206407	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileEuHtdm"
+ExceptionHandler::GenerateDump cloned child ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+65775
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+1613868339618	geckodriver	INFO	Listening on 127.0.0.1:41339
+1613868339631	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileODm0X9"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1613868344518	Marionette	INFO	Listening on port 40133
+1613868344624	Marionette	WARN	TLS certificate errors will be ignored for this session
+1613868344654	Marionette	ERROR	[15] No reply from Marionette:Register
+1613868350602	Marionette	INFO	Stopped listening on port 40133
+1613869571793	geckodriver	INFO	Listening on 127.0.0.1:44283
+1613869572793	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilerJ9dwl"
+ExceptionHandler::GenerateDump cloned child ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+68389
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+1613872635517	geckodriver	INFO	Listening on 127.0.0.1:48193
+1613872636527	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileMI4XQS"
+ExceptionHandler::GenerateDump cloned child 69880
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+ExceptionHandler::WaitForContinueSignal waiting for continue signal...
