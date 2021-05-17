@@ -54,8 +54,7 @@ def sobrenome_composto():
 dataset.insert(1,'sobrenome', sobrenome_composto())
 dataset
 
-#%%
-### CPFS: CRIAR CPFS VÁLIDOS
+#%% CPFS: CRIAR CPFS VÁLIDOS
 
 lista_cpfs = [str(x) for x in np.random.randint(300000000,399999999,len(dataset))]
 
@@ -67,10 +66,11 @@ for x in range(len(lista_cpfs)):
     lele = lele if int(lele) < 10 else '0'
     lista_cpfs[x] = lista_cpfs[x] + lele
 
-lista_cpfs
+#lista_cpfs
 
 # %%
 dataset.insert(3, 'cpf', lista_cpfs)
+dataset
 #%%
 dataset.insert(0, 'id_cliente', (dataset['nome'] + dataset['sobrenome'] + dataset['cpf']).apply(hash))
 
@@ -182,23 +182,26 @@ dic_cpf = {x:y for x,y in lista_cpf3}
 func_cpf = lambda x: np.random.choice(dic_cpf[x])
 func_cpf('1')
 
-#%%
+#%% ADICIONAR UF
 serie_uf = dataset.cpf.str[-3].map(func_cpf)
 dataset.insert(6,'uf', serie_uf)
 
-#%%
+#%% ADICIONAR CEP
 def lala(x):
     lele = np.random.randint(dic_cep[x][0],dic_cep[x][1])
     lele = str(lele).rjust(8,'0')
     lele = lele[:5] + '-' + lele[5:]
     return lele
 lala('SP')
-#%%
+
 serie_cep = dataset.uf.map(lala)
 serie_cep
 dataset.insert(7,'cep', serie_cep)
-#%%
-dataset
+#%% ADICIONAR IDADE
+dataset['idade'] = np.random.normal(30,10,len(dataset))
+dataset.loc[dataset['idade'] < 10, 'idade'] = dataset.loc[dataset['idade'] < 20]['idade'] + 20
+dataset.loc[dataset['idade'] < 20, 'idade'] = dataset.loc[dataset['idade'] < 20]['idade'] + 10
+dataset.loc[dataset['idade'] > 80, 'idade'] = dataset.loc[dataset['idade'] > 80]['idade'] - 10
 
 #%%
 dataset.to_csv('csv/dados_clientes.csv', index = False)
