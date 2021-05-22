@@ -204,7 +204,7 @@ dataset.loc[dataset['idade'] < 20, 'idade'] = dataset.loc[dataset['idade'] < 20]
 dataset.loc[dataset['idade'] > 80, 'idade'] = dataset.loc[dataset['idade'] > 80]['idade'] - 10
 
 #%% ADICIONAR DATA DE INSCRIÇÃO
-dataset['data_inscricao'] = np.random.choice(pd.date_range('2020-01-01','2021-12-31', 365), len(dataset))
+dataset['data_inscricao'] = np.random.choice(pd.date_range('2021-01-01','2021-12-31', 365), len(dataset))
 #%%
 dataset.to_csv('csv/dados_clientes.csv', index = False)
 # %%
