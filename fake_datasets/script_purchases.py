@@ -29,7 +29,7 @@ df_m['data'] = np.random.choice(pd.date_range('2021-01-01','2021-01-31'), len(df
 df_f['data'] = np.random.choice(pd.date_range('2021-01-01','2021-01-31'), len(df_m))
 
 # %%
-df_final = pd.concat([df_m,df_f])[['cpf','nome','produto']]
+df_final = pd.concat([df_m,df_f])[['cpf','nome','produto','data']]
 
 dic_preco = {
     'maçã':2,
@@ -42,4 +42,6 @@ df_final['preco'] = df_final['produto'].map(dic_preco)
 df_final.to_csv('csv/venda_produtos.csv')
 # %%
 df_final
+# %%
+df_final.head(2)
 # %%
