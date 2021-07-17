@@ -29,7 +29,7 @@ df_m['data'] = np.random.choice(pd.date_range('2021-01-01','2021-01-31'), len(df
 df_f['data'] = np.random.choice(pd.date_range('2021-01-01','2021-01-31'), len(df_m))
 
 # %%
-df_final = pd.concat([df_m,df_f])[['cpf','mercado','produto']]
+df_final = pd.concat([df_m,df_f])[['cpf','nome','produto']]
 
 dic_preco = {
     'maçã':2,
