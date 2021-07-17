@@ -16,13 +16,20 @@ df_m = df2.query('uf == "SP" & sexo == "M"').sample(200)
 df_f = df2.query('uf == "SP" & sexo == "F"').sample(180)
 # %%
 
+df_m = df_m.sample(2000, replace = True)
+df_f = df_f.sample(2000, replace = True)
+
+#%%
 df_m['mercado'] = np.random.choice(['Broa de Açúcar','Plus','Mes'], len(df_m))
 df_f['mercado'] = np.random.choice(['Broa de Açúcar','Plus','Plus','Mes'], len(df_f))
 #%%
 df_m['produto'] = np.random.choice(['maçã','banana','pera','uva'], len(df_m))
 df_f['produto'] = np.random.choice(['maçã','banana','banana','pera','pera'], len(df_f))
+df_m['data'] = np.random.choice(pd.date_range('2021-01-01','2021-01-31'), len(df_m))
+df_f['data'] = np.random.choice(pd.date_range('2021-01-01','2021-01-31'), len(df_m))
+
 # %%
 df_final = pd.concat([df_m,df_f])[['cpf','mercado','produto']]
 # %%
-df_final.to_csv('csv/mercados_produtos.csv')
+df_final.to_csv('csv/venda_produtos.csv')
 # %%
