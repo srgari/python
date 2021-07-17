@@ -20,8 +20,8 @@ df_m = df_m.sample(2000, replace = True)
 df_f = df_f.sample(2000, replace = True)
 
 #%%
-df_m['mercado'] = np.random.choice(['Broa de Açúcar','Plus','Mes'], len(df_m))
-df_f['mercado'] = np.random.choice(['Broa de Açúcar','Plus','Plus','Mes'], len(df_f))
+df_m['nome'] = np.random.choice(['Broa de Açúcar','Plus','Mes'], len(df_m))
+df_f['nome'] = np.random.choice(['Broa de Açúcar','Plus','Plus','Mes'], len(df_f))
 #%%
 df_m['produto'] = np.random.choice(['maçã','banana','pera','uva'], len(df_m))
 df_f['produto'] = np.random.choice(['maçã','banana','banana','pera','pera'], len(df_f))
