@@ -30,6 +30,16 @@ df_f['data'] = np.random.choice(pd.date_range('2021-01-01','2021-01-31'), len(df
 
 # %%
 df_final = pd.concat([df_m,df_f])[['cpf','mercado','produto']]
+
+dic_preco = {
+    'maçã':2,
+    'banana':1,
+    'pera':3,
+    'uva':7
+}
+df_final['preco'] = df_final['produto'].map(dic_preco)
 # %%
 df_final.to_csv('csv/venda_produtos.csv')
+# %%
+df_final
 # %%
