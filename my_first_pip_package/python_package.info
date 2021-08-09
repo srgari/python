@@ -1,0 +1,123 @@
+https://test.pypi.org/project/lala/0.0.1/
+https://packaging.python.org/tutorials/packaging-projects/
+
+--> create structure of folders and files:
+package
+|_ LICENSE
+|_ pyproject.toml
+|_ README.md
+|_ setup.cfg
+|__src/
+   |___example_package (name of package)
+       |___ __init__.py
+       |___ example.py (module from the package)
+
+--> add to example.py anything you want.
+Ex:
+
+``` example.py
+def add_one(number):
+  return number + 1
+```
+
+
+--> create pyproject.toml:
+```
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+```
+
+--> create setup.cfg:
+```
+[metadata]
+name = example-pkg-YOUR-USERNAME-HERE
+version = 0.0.1
+author = Example Author
+author_email = author@example.com
+description = A small example package
+long_description = file: README.md
+long_description_content_type = text/markdown
+url = https://github.com/pypa/sampleproject
+project_urls =
+    Bug Tracker = https://github.com/pypa/sampleproject/issues
+classifiers =
+    Programming Language :: Python :: 3
+    License :: OSI Approved :: MIT License
+    Operating System :: OS Independent
+
+[options]
+package_dir =
+    = src
+packages = find:
+python_requires = >=3.6
+
+[options.packages.find]
+where = src
+```
+
+Version: needs to change if you upgrade your project
+Name: name that will show up on website
+
+
+--> create README.md:
+```
+# Example Package
+
+This is a simple example package. You can use
+[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+to write your content.
+```
+
+--> create LICENSE:
+```
+Copyright (c) 2018 The Python Packaging Authority
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+
+--> create build:
+on the package directory, type:
+$ python -m build
+
+a folder will be created: dist
+
+--> upload package
+$ python -m twine upload --repository testpypi dist/*
+login: __token__
+password: your token
+
+To create login and get token:
+https://test.pypi.org/manage/account/#api-tokens
+- scope: entire account
+
+--> install your package:
+pip install -i https://test.pypi.org/simple/ lala==0.0.1
+
+--> have fun!
+python 
+>>> import lala.starwars as sw
+>>> sw.starwars()
+
+
+

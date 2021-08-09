@@ -5,3 +5,7 @@
 !*.csv
 mlflow/*
 mlruns/*
+!*.info
+!*.toml
+!*.cfg
+!*.md
