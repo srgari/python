@@ -28,7 +28,7 @@ np.random.seed(42)
 ### DO brasil.io, DO ALVARO JUSTIN
 ### OBRIGADO, ALVARO!
 
-dataset = pd.read_csv('csv/nomes.csv.gz')
+dataset = pd.read_csv('tables/nomes.csv.gz')
 dataset = dataset[['group_name','classification']]
 dataset.rename(columns={'group_name':'nome','classification':'sexo'}, inplace = True)
 dataset
@@ -56,12 +56,20 @@ dataset
 
 #%% CPFS: CRIAR CPFS VÁLIDOS
 
-lista_cpfs = [str(x) for x in np.random.randint(300000000,399999999,len(dataset))]
+lista_cpfs = ([
+    str(x) 
+    for x in 
+    np.random.choice(
+        np.arange(300000000,399999999)
+        ,len(dataset),
+        replace = False
+    )
+    ])
 
 for x in range(len(lista_cpfs)):
-    lala = sum([(int(y)*z) for y,z in zip(lista_cpfs[x], range(10,1,-1))])*10%11
-    lala = lala if int(lala) < 10 else '0'
-    lista_cpfs[x] = lista_cpfs[x] + str(lala)
+    fafa = sum([(int(y)*z) for y,z in zip(lista_cpfs[x], range(10,1,-1))])*10%11
+    fafa = fafa if int(fafa) < 10 else '0'
+    lista_cpfs[x] = lista_cpfs[x] + str(fafa)
     lele = str(sum([(int(y)*z) for y,z in zip(lista_cpfs[x], range(11,1,-1))])*10%11)
     lele = lele if int(lele) < 10 else '0'
     lista_cpfs[x] = lista_cpfs[x] + lele
@@ -206,7 +214,7 @@ dataset.loc[dataset['idade'] > 80, 'idade'] = dataset.loc[dataset['idade'] > 80]
 #%% ADICIONAR DATA DE INSCRIÇÃO
 dataset['data_inscricao'] = np.random.choice(pd.date_range('2021-01-01','2021-12-31', 365), len(dataset))
 #%%
-dataset.to_csv('csv/dados_clientes.csv', index = False)
+dataset.to_csv('tables/dados_clientes.csv', index = False)
 # %%
 dataset
 # %%

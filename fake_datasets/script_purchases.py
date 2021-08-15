@@ -39,7 +39,7 @@ dic_preco = {
 }
 df_final['preco'] = df_final['produto'].map(dic_preco)
 # %%
-df_final.to_csv('csv/venda_produtos.csv')
+df_final.to_csv('tables/venda_produtos.csv', index = False)
 # %%
 df_final
 # %%
