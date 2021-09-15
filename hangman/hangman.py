@@ -11,7 +11,17 @@ countries = re.findall('15px">(.{1,20})?</td', r.text)
 countries = [x for x in countries if ' ' not in x]
 
 def draw_person(attempt = 0, hidden_word = '', real_word = '', wrong_ones = ''):
-    draw = """ attempt {attempt}
+    
+    a = 'O'                if attempt > 0 and attempt <= 6 else  'O - I\'m dead!' if attempt >=7  else  ' ' 
+    c = '|'                if attempt > 1 else ' ' 
+    b = '/'                if attempt > 2 else ' '      
+    d = '\\'               if attempt > 3 else ' '  
+    e = '/'                if attempt > 4 else ' '  
+    f = '\\'               if attempt > 5 else ' '  
+    g = '|     |\n|'       if attempt > 6 else '|'  
+    h = ' '                if attempt > 6 else 'XXXXX'  
+
+    draw = f""" attempt {attempt}
 {wrong_ones}
 ________   
 {g}     {a}     
@@ -23,48 +33,32 @@ ________
 
 
 
-    a = 'O'                if attempt > 0 and attempt <= 6 else  'O - I\'m dead!' if attempt >=7  else  ' ' 
-    c = '|'                if attempt > 1 else ' ' 
-    b = '/'                if attempt > 2 else ' '      
-    d = '\\'               if attempt > 3 else ' '  
-    e = '/'                if attempt > 4 else ' '  
-    f = '\\'               if attempt > 5 else ' '  
-    g = '|     |\n|'       if attempt > 6 else '|'  
-    h = ' '                if attempt > 6 else 'XXXXX'  
-
     subprocess.run('clear')
-    print('\r',
-        draw.format(
-            a = a,
-            b = b,
-            c = c,
-            d = d,
-            e = e,
-            f = f,
-            g = g,
-            h = h,
-            attempt = attempt,
-            hidden_word = hidden_word,
-            real_word = real_word,
-            wrong_ones = wrong_ones
-            ), end = '\n'
-    )
+    print(draw)
 
 def guess_word():
     word = random.choice(countries)
-    # word = 'Australia'
+    # word = 'Madagascar'
     sel = list(word)
     hidden_word = list(' '*len(word))
     wrong_words = []
     n = 0
     while ' ' in hidden_word:
-        draw_person(n, ''.join(hidden_word), '', ''.join(wrong_words))
+        draw_person(n, hidden_word, '', ''.join(wrong_words))        
         attempt = input('guess letter\n')
         print(f'you pressed {attempt}')      
         
         if attempt in sel:
-            hidden_word.remove(' ')
-            hidden_word.insert(word.index(attempt), attempt)
+            if word.count(attempt) > 1:
+                count = hidden_word.count(attempt)            
+                pos = sorted(set([word.index(attempt, x) for x in range(len(word)-1)]))[count]                
+            else:
+                pos = word.index(attempt)            
+            hidden_word.pop(pos)
+            print(pos)
+            hidden_word.insert(word.index(attempt, pos), attempt)
+            print(hidden_word, attempt)            
+            
             sel.remove(attempt)
             # print(word, ''.join(hidden_word))
         else:
