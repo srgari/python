@@ -1,5 +1,6 @@
 #%%
 ### Hangman!
+import os 
 import subprocess
 import requests 
 import re 
@@ -31,9 +32,11 @@ ________
 {hidden_word}
 {real_word}"""
 
-
-
-    subprocess.run('clear')
+    
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
     print(draw)
 
 def guess_word():
