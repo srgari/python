@@ -8,6 +8,7 @@ import time
 #%%
 r = requests.get('https://www.worldometers.info/geography/alphabetical-list-of-countries/')
 countries = re.findall('15px">(.{1,20})?</td', r.text)
+countries = [x for x in countries if ' ' not in x]
 
 def draw_person(attempt = 0, hidden_word = '', real_word = '', wrong_ones = ''):
     draw = """ attempt {attempt}
@@ -51,6 +52,8 @@ ________
 
 def guess_word():
     word = random.choice(countries)
+    # word = 'Australia'
+    sel = list(word)
     hidden_word = list(' '*len(word))
     wrong_words = []
     n = 0
@@ -59,10 +62,11 @@ def guess_word():
         attempt = input('guess letter\n')
         print(f'you pressed {attempt}')      
         
-        if attempt in word:
+        if attempt in sel:
             hidden_word.remove(' ')
             hidden_word.insert(word.index(attempt), attempt)
-            print(word, ''.join(hidden_word))
+            sel.remove(attempt)
+            # print(word, ''.join(hidden_word))
         else:
             wrong_words.append(attempt) 
             n+=1
@@ -71,6 +75,7 @@ def guess_word():
             draw_person(n, ''.join(hidden_word), word)
             print('Game over!')
             break
-            
+        draw_person(n, ''.join(hidden_word), '', ''.join(wrong_words))
+        print('Condragulations, my queen! You won!')
 
 guess_word()
