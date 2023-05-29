@@ -9,3 +9,4 @@ mlruns/*
 !*.toml
 !*.cfg
 !*.md
+passwords
